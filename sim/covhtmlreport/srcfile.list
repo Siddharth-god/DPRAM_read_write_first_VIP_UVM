@@ -1,3 +1,0 @@
-../read_agent_top/ram_read_seqs.sv
-../test/ram_pkg.sv
-../write_agent_top/ram_write_seqs.sv

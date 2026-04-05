@@ -1,4 +1,0 @@
-var g_data = {'dummy':null,
-'2':'../read_agent_top/ram_read_seqs.sv',
-'3':'../test/ram_pkg.sv',
-'1':'../write_agent_top/ram_write_seqs.sv'};
