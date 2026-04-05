@@ -1,0 +1,1408 @@
+# vsim -cvgperinstance -vopt -voptargs="+acc" -coverage -sva -c -do " log -r /* ;coverage save -onexit mem_cov3;run -all; exit" -wlf wave_file3.wlf -l test3.log -sv_seed random work.ram_top "+UVM_TESTNAME=ram_test2" 
+# Start time: 12:31:00 on Apr 05,2026
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Sim-64
+# //  Version 10.7c win64 Aug 18 2018
+# //
+# //  Copyright 1991-2018 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.dpram_if(fast)
+# Loading mtiUvm.uvm_pkg
+# Loading work.ram_pkg(fast)
+# Loading work.ram_top(fast)
+# Loading work.dpram_if(fast)
+# Loading work.ram(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading C:/questasim64_10.7c/uvm-1.1d\win64\uvm_dpi.dll
+# ** Warning: (vsim-8634) Code was not compiled with coverage options.
+# Sv_Seed = 409036714
+#  log -r /* 
+# coverage save -onexit mem_cov3
+# run -all
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(216) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test ram_test2...
+# UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+# --------------------------------------------------------------------
+# Name                         Type                        Size  Value
+# --------------------------------------------------------------------
+# uvm_test_top                 ram_test2                   -     @474 
+#   ram_envh                   ram_env                     -     @490 
+#     ram_rd_agt_toph[0]       ram_rd_agt_top              -     @509 
+#       ram_rd_agth            ram_rd_agt                  -     @528 
+#         ram_rd_monh          ram_rd_mon                  -     @537 
+#           rd_mon_port        uvm_analysis_port           -     @676 
+#         ram_rd_seqrh         ram_rd_seqr                 -     @567 
+#           rsp_export         uvm_analysis_export         -     @574 
+#           seq_item_export    uvm_seq_item_pull_imp       -     @668 
+#           arbitration_queue  array                       0     -    
+#           lock_queue         array                       0     -    
+#           num_last_reqs      integral                    32    'd1  
+#           num_last_rsps      integral                    32    'd1  
+#         rd_drvh              ram_rd_drv                  -     @544 
+#           rsp_port           uvm_analysis_port           -     @559 
+#           seq_item_port      uvm_seq_item_pull_port      -     @551 
+#     ram_sbh[0]               ram_sb                      -     @520 
+#       fifo_rd                uvm_tlm_analysis_fifo #(T)  -     @695 
+#         analysis_export      uvm_analysis_imp            -     @734 
+#         get_ap               uvm_analysis_port           -     @726 
+#         get_peek_export      uvm_get_peek_imp            -     @710 
+#         put_ap               uvm_analysis_port           -     @718 
+#         put_export           uvm_put_imp                 -     @702 
+#       fifo_wr                uvm_tlm_analysis_fifo #(T)  -     @742 
+#         analysis_export      uvm_analysis_imp            -     @781 
+#         get_ap               uvm_analysis_port           -     @773 
+#         get_peek_export      uvm_get_peek_imp            -     @757 
+#         put_ap               uvm_analysis_port           -     @765 
+#         put_export           uvm_put_imp                 -     @749 
+#     ram_wr_agt_toph[0]       ram_wr_agt_top              -     @498 
+#       ram_wr_agth            ram_wr_agt                  -     @790 
+#         ram_wr_drvh          ram_wr_drv                  -     @806 
+#           rsp_port           uvm_analysis_port           -     @821 
+#           seq_item_port      uvm_seq_item_pull_port      -     @813 
+#         ram_wr_monh          ram_wr_mon                  -     @798 
+#           wr_mon_port        uvm_analysis_port           -     @939 
+#         ram_wr_seqrh         ram_wr_seqr                 -     @829 
+#           rsp_export         uvm_analysis_export         -     @836 
+#           seq_item_export    uvm_seq_item_pull_imp       -     @930 
+#           arbitration_queue  array                       0     -    
+#           lock_queue         array                       0     -    
+#           num_last_reqs      integral                    32    'd1  
+#           num_last_rsps      integral                    32    'd1  
+# --------------------------------------------------------------------
+# 
+# !!! SCOREBOARD VERSION 2.0 RUNNING !!!
+# 
+# ------------------------------------ Burst write sequence started ------------------------------------
+# 
+# 
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 5: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     'd0  
+#   wr_adr  integral    4     'd0  
+#   din     integral    8     'd0  
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 5: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     'd0  
+#   rd_adr  integral    4     'd0  
+#   dout    integral    8     'd0  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=0 | wd_adr=0 | din=0
+# 
+# Data in fifo from RD MON :
+#  re=0 | rd_adr=0 | dout=0
+# 
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 15: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     'd6  
+#   din     integral    8     'd11 
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 15: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     'd0  
+#   rd_adr  integral    4     'd0  
+#   dout    integral    8     'd0  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=6 | din=11
+# Exp data = '{6:11 }
+# 
+# Data in fifo from RD MON :
+#  re=0 | rd_adr=0 | dout=0
+# 
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 25: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     'd2  
+#   din     integral    8     'd4  
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 25: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     'd0  
+#   rd_adr  integral    4     'd0  
+#   dout    integral    8     'd0  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=2 | din=4
+# Exp data = '{2:4, 6:11 }
+# 
+# Data in fifo from RD MON :
+#  re=0 | rd_adr=0 | dout=0
+# 
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 35: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     'd6  
+#   din     integral    8     'd6  
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 35: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     'd0  
+#   rd_adr  integral    4     'd0  
+#   dout    integral    8     'd0  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=6 | din=6
+# Exp data = '{2:4, 6:6 }
+# 
+# Data in fifo from RD MON :
+#  re=0 | rd_adr=0 | dout=0
+# 
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 45: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     9    
+#   din     integral    8     'd5  
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 45: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     'd0  
+#   rd_adr  integral    4     'd0  
+#   dout    integral    8     'd0  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=9 | din=5
+# Exp data = '{2:4, 6:6, 9:5 }
+# 
+# Data in fifo from RD MON :
+#  re=0 | rd_adr=0 | dout=0
+# 
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 55: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     15   
+#   din     integral    8     'd20 
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 55: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     'd0  
+#   rd_adr  integral    4     'd0  
+#   dout    integral    8     'd0  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=15 | din=20
+# Exp data = '{2:4, 6:6, 9:5, 15:20 }
+# 
+# Data in fifo from RD MON :
+#  re=0 | rd_adr=0 | dout=0
+# 
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 65: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     14   
+#   din     integral    8     'd9  
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 65: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     'd0  
+#   rd_adr  integral    4     'd0  
+#   dout    integral    8     'd0  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=14 | din=9
+# Exp data = '{2:4, 6:6, 9:5, 14:9, 15:20 }
+# 
+# Data in fifo from RD MON :
+#  re=0 | rd_adr=0 | dout=0
+# 
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 75: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     'd7  
+#   din     integral    8     'd13 
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 75: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     'd0  
+#   rd_adr  integral    4     'd0  
+#   dout    integral    8     'd0  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=7 | din=13
+# Exp data = '{2:4, 6:6, 7:13, 9:5, 14:9, 15:20 }
+# 
+# Data in fifo from RD MON :
+#  re=0 | rd_adr=0 | dout=0
+# 
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 85: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     9    
+#   din     integral    8     'd14 
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 85: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     'd0  
+#   rd_adr  integral    4     'd0  
+#   dout    integral    8     'd0  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=9 | din=14
+# Exp data = '{2:4, 6:6, 7:13, 9:14, 14:9, 15:20 }
+# 
+# Data in fifo from RD MON :
+#  re=0 | rd_adr=0 | dout=0
+# 
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 95: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     'd2  
+#   din     integral    8     'd17 
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 95: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     'd0  
+#   rd_adr  integral    4     'd0  
+#   dout    integral    8     'd0  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=2 | din=17
+# Exp data = '{2:17, 6:6, 7:13, 9:14, 14:9, 15:20 }
+# 
+# Data in fifo from RD MON :
+#  re=0 | rd_adr=0 | dout=0
+# 
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 105: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     11   
+#   din     integral    8     'd12 
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 105: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     'd0  
+#   rd_adr  integral    4     'd0  
+#   dout    integral    8     'd0  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=11 | din=12
+# Exp data = '{2:17, 6:6, 7:13, 9:14, 11:12, 14:9, 15:20 }
+# 
+# Data in fifo from RD MON :
+#  re=0 | rd_adr=0 | dout=0
+# 
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 115: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     15   
+#   din     integral    8     'd12 
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 115: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     'd0  
+#   rd_adr  integral    4     'd0  
+#   dout    integral    8     'd0  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=15 | din=12
+# Exp data = '{2:17, 6:6, 7:13, 9:14, 11:12, 14:9, 15:12 }
+# 
+# Data in fifo from RD MON :
+#  re=0 | rd_adr=0 | dout=0
+# 
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 125: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     8    
+#   din     integral    8     'd7  
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 125: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     'd0  
+#   rd_adr  integral    4     'd0  
+#   dout    integral    8     'd0  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=8 | din=7
+# Exp data = '{2:17, 6:6, 7:13, 8:7, 9:14, 11:12, 14:9, 15:12 }
+# 
+# Data in fifo from RD MON :
+#  re=0 | rd_adr=0 | dout=0
+# 
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 135: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     8    
+#   din     integral    8     'd0  
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 135: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     'd0  
+#   rd_adr  integral    4     'd0  
+#   dout    integral    8     'd0  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=8 | din=0
+# Exp data = '{2:17, 6:6, 7:13, 8:0, 9:14, 11:12, 14:9, 15:12 }
+# 
+# Data in fifo from RD MON :
+#  re=0 | rd_adr=0 | dout=0
+# 
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 145: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     'd5  
+#   din     integral    8     'd0  
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 145: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     'd0  
+#   rd_adr  integral    4     'd0  
+#   dout    integral    8     'd0  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=5 | din=0
+# Exp data = '{2:17, 5:0, 6:6, 7:13, 8:0, 9:14, 11:12, 14:9, 15:12 }
+# 
+# Data in fifo from RD MON :
+#  re=0 | rd_adr=0 | dout=0
+# 
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 155: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     15   
+#   din     integral    8     'd13 
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 155: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     'd0  
+#   rd_adr  integral    4     'd0  
+#   dout    integral    8     'd0  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=15 | din=13
+# Exp data = '{2:17, 5:0, 6:6, 7:13, 8:0, 9:14, 11:12, 14:9, 15:13 }
+# 
+# Data in fifo from RD MON :
+#  re=0 | rd_adr=0 | dout=0
+# 
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 165: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     'd1  
+#   din     integral    8     'd2  
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 165: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     'd0  
+#   rd_adr  integral    4     'd0  
+#   dout    integral    8     'd0  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=1 | din=2
+# Exp data = '{1:2, 2:17, 5:0, 6:6, 7:13, 8:0, 9:14, 11:12, 14:9, 15:13 }
+# 
+# Data in fifo from RD MON :
+#  re=0 | rd_adr=0 | dout=0
+# 
+# 
+# ------------------------------------ Burst read sequence started ------------------------------------
+# 
+# 
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 175: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     14   
+#   din     integral    8     'd5  
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 175: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     'd0  
+#   rd_adr  integral    4     'd0  
+#   dout    integral    8     'd0  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=14 | din=5
+# Exp data = '{1:2, 2:17, 5:0, 6:6, 7:13, 8:0, 9:14, 11:12, 14:5, 15:13 }
+# 
+# Data in fifo from RD MON :
+#  re=0 | rd_adr=0 | dout=0
+# 
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 185: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     14   
+#   din     integral    8     'd5  
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 185: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     1    
+#   rd_adr  integral    4     14   
+#   dout    integral    8     'd5  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=14 | din=5
+# Exp data = '{1:2, 2:17, 5:0, 6:6, 7:13, 8:0, 9:14, 11:12, 14:5, 15:13 }
+# 
+# Data in fifo from RD MON :
+#  re=1 | rd_adr=14 | dout=5
+# 
+# Exp out = 5
+# UVM_INFO ../tb/ram_sb.sv(62) @ 185: uvm_test_top.ram_envh.ram_sbh[0] [ram_sb] 
+# 
+# Scoreboard : [Data Match Successful]
+# [dout : exp_out] = [5:5]
+# 
+# data match : [1]
+# 
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 195: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     14   
+#   din     integral    8     'd5  
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 195: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     1    
+#   rd_adr  integral    4     12   
+#   dout    integral    8     'd0  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=14 | din=5
+# Exp data = '{1:2, 2:17, 5:0, 6:6, 7:13, 8:0, 9:14, 11:12, 14:5, 15:13 }
+# 
+# Data in fifo from RD MON :
+#  re=1 | rd_adr=12 | dout=0
+# 
+# UVM_WARNING ../tb/ram_sb.sv(78) @ 195: uvm_test_top.ram_envh.ram_sbh[0] [ram_sb] Read from empty addr: 12
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 205: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     14   
+#   din     integral    8     'd5  
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 205: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     1    
+#   rd_adr  integral    4     'd7  
+#   dout    integral    8     'd13 
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=14 | din=5
+# Exp data = '{1:2, 2:17, 5:0, 6:6, 7:13, 8:0, 9:14, 11:12, 14:5, 15:13 }
+# 
+# Data in fifo from RD MON :
+#  re=1 | rd_adr=7 | dout=13
+# 
+# Exp out = 13
+# UVM_INFO ../tb/ram_sb.sv(62) @ 205: uvm_test_top.ram_envh.ram_sbh[0] [ram_sb] 
+# 
+# Scoreboard : [Data Match Successful]
+# [dout : exp_out] = [13:13]
+# 
+# data match : [2]
+# 
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 215: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     14   
+#   din     integral    8     'd5  
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 215: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     1    
+#   rd_adr  integral    4     'd5  
+#   dout    integral    8     'd0  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=14 | din=5
+# Exp data = '{1:2, 2:17, 5:0, 6:6, 7:13, 8:0, 9:14, 11:12, 14:5, 15:13 }
+# 
+# Data in fifo from RD MON :
+#  re=1 | rd_adr=5 | dout=0
+# 
+# Exp out = 0
+# UVM_INFO ../tb/ram_sb.sv(62) @ 215: uvm_test_top.ram_envh.ram_sbh[0] [ram_sb] 
+# 
+# Scoreboard : [Data Match Successful]
+# [dout : exp_out] = [0:0]
+# 
+# data match : [3]
+# 
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 225: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     14   
+#   din     integral    8     'd5  
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 225: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     1    
+#   rd_adr  integral    4     12   
+#   dout    integral    8     'd0  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=14 | din=5
+# Exp data = '{1:2, 2:17, 5:0, 6:6, 7:13, 8:0, 9:14, 11:12, 14:5, 15:13 }
+# 
+# Data in fifo from RD MON :
+#  re=1 | rd_adr=12 | dout=0
+# 
+# UVM_WARNING ../tb/ram_sb.sv(78) @ 225: uvm_test_top.ram_envh.ram_sbh[0] [ram_sb] Read from empty addr: 12
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 235: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     14   
+#   din     integral    8     'd5  
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 235: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     1    
+#   rd_adr  integral    4     9    
+#   dout    integral    8     'd14 
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=14 | din=5
+# Exp data = '{1:2, 2:17, 5:0, 6:6, 7:13, 8:0, 9:14, 11:12, 14:5, 15:13 }
+# 
+# Data in fifo from RD MON :
+#  re=1 | rd_adr=9 | dout=14
+# 
+# Exp out = 14
+# UVM_INFO ../tb/ram_sb.sv(62) @ 235: uvm_test_top.ram_envh.ram_sbh[0] [ram_sb] 
+# 
+# Scoreboard : [Data Match Successful]
+# [dout : exp_out] = [14:14]
+# 
+# data match : [4]
+# 
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 245: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     14   
+#   din     integral    8     'd5  
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 245: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     1    
+#   rd_adr  integral    4     'd1  
+#   dout    integral    8     'd2  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=14 | din=5
+# Exp data = '{1:2, 2:17, 5:0, 6:6, 7:13, 8:0, 9:14, 11:12, 14:5, 15:13 }
+# 
+# Data in fifo from RD MON :
+#  re=1 | rd_adr=1 | dout=2
+# 
+# Exp out = 2
+# UVM_INFO ../tb/ram_sb.sv(62) @ 245: uvm_test_top.ram_envh.ram_sbh[0] [ram_sb] 
+# 
+# Scoreboard : [Data Match Successful]
+# [dout : exp_out] = [2:2]
+# 
+# data match : [5]
+# 
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 255: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     14   
+#   din     integral    8     'd5  
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 255: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     1    
+#   rd_adr  integral    4     'd5  
+#   dout    integral    8     'd0  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=14 | din=5
+# Exp data = '{1:2, 2:17, 5:0, 6:6, 7:13, 8:0, 9:14, 11:12, 14:5, 15:13 }
+# 
+# Data in fifo from RD MON :
+#  re=1 | rd_adr=5 | dout=0
+# 
+# Exp out = 0
+# UVM_INFO ../tb/ram_sb.sv(62) @ 255: uvm_test_top.ram_envh.ram_sbh[0] [ram_sb] 
+# 
+# Scoreboard : [Data Match Successful]
+# [dout : exp_out] = [0:0]
+# 
+# data match : [6]
+# 
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 265: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     14   
+#   din     integral    8     'd5  
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 265: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     1    
+#   rd_adr  integral    4     'd3  
+#   dout    integral    8     'd0  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=14 | din=5
+# Exp data = '{1:2, 2:17, 5:0, 6:6, 7:13, 8:0, 9:14, 11:12, 14:5, 15:13 }
+# 
+# Data in fifo from RD MON :
+#  re=1 | rd_adr=3 | dout=0
+# 
+# UVM_WARNING ../tb/ram_sb.sv(78) @ 265: uvm_test_top.ram_envh.ram_sbh[0] [ram_sb] Read from empty addr: 3
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 275: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     14   
+#   din     integral    8     'd5  
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 275: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     1    
+#   rd_adr  integral    4     'd3  
+#   dout    integral    8     'd0  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=14 | din=5
+# Exp data = '{1:2, 2:17, 5:0, 6:6, 7:13, 8:0, 9:14, 11:12, 14:5, 15:13 }
+# 
+# Data in fifo from RD MON :
+#  re=1 | rd_adr=3 | dout=0
+# 
+# UVM_WARNING ../tb/ram_sb.sv(78) @ 275: uvm_test_top.ram_envh.ram_sbh[0] [ram_sb] Read from empty addr: 3
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 285: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     14   
+#   din     integral    8     'd5  
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 285: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     1    
+#   rd_adr  integral    4     'd3  
+#   dout    integral    8     'd0  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=14 | din=5
+# Exp data = '{1:2, 2:17, 5:0, 6:6, 7:13, 8:0, 9:14, 11:12, 14:5, 15:13 }
+# 
+# Data in fifo from RD MON :
+#  re=1 | rd_adr=3 | dout=0
+# 
+# UVM_WARNING ../tb/ram_sb.sv(78) @ 285: uvm_test_top.ram_envh.ram_sbh[0] [ram_sb] Read from empty addr: 3
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 295: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     14   
+#   din     integral    8     'd5  
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 295: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     1    
+#   rd_adr  integral    4     14   
+#   dout    integral    8     'd5  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=14 | din=5
+# Exp data = '{1:2, 2:17, 5:0, 6:6, 7:13, 8:0, 9:14, 11:12, 14:5, 15:13 }
+# 
+# Data in fifo from RD MON :
+#  re=1 | rd_adr=14 | dout=5
+# 
+# Exp out = 5
+# UVM_INFO ../tb/ram_sb.sv(62) @ 295: uvm_test_top.ram_envh.ram_sbh[0] [ram_sb] 
+# 
+# Scoreboard : [Data Match Successful]
+# [dout : exp_out] = [5:5]
+# 
+# data match : [7]
+# 
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 305: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     14   
+#   din     integral    8     'd5  
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 305: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     1    
+#   rd_adr  integral    4     'd5  
+#   dout    integral    8     'd0  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=14 | din=5
+# Exp data = '{1:2, 2:17, 5:0, 6:6, 7:13, 8:0, 9:14, 11:12, 14:5, 15:13 }
+# 
+# Data in fifo from RD MON :
+#  re=1 | rd_adr=5 | dout=0
+# 
+# Exp out = 0
+# UVM_INFO ../tb/ram_sb.sv(62) @ 305: uvm_test_top.ram_envh.ram_sbh[0] [ram_sb] 
+# 
+# Scoreboard : [Data Match Successful]
+# [dout : exp_out] = [0:0]
+# 
+# data match : [8]
+# 
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 315: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     14   
+#   din     integral    8     'd5  
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 315: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     1    
+#   rd_adr  integral    4     14   
+#   dout    integral    8     'd5  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=14 | din=5
+# Exp data = '{1:2, 2:17, 5:0, 6:6, 7:13, 8:0, 9:14, 11:12, 14:5, 15:13 }
+# 
+# Data in fifo from RD MON :
+#  re=1 | rd_adr=14 | dout=5
+# 
+# Exp out = 5
+# UVM_INFO ../tb/ram_sb.sv(62) @ 315: uvm_test_top.ram_envh.ram_sbh[0] [ram_sb] 
+# 
+# Scoreboard : [Data Match Successful]
+# [dout : exp_out] = [5:5]
+# 
+# data match : [9]
+# 
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 325: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     14   
+#   din     integral    8     'd5  
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 325: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     1    
+#   rd_adr  integral    4     'd6  
+#   dout    integral    8     'd6  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=14 | din=5
+# Exp data = '{1:2, 2:17, 5:0, 6:6, 7:13, 8:0, 9:14, 11:12, 14:5, 15:13 }
+# 
+# Data in fifo from RD MON :
+#  re=1 | rd_adr=6 | dout=6
+# 
+# Exp out = 6
+# UVM_INFO ../tb/ram_sb.sv(62) @ 325: uvm_test_top.ram_envh.ram_sbh[0] [ram_sb] 
+# 
+# Scoreboard : [Data Match Successful]
+# [dout : exp_out] = [6:6]
+# 
+# data match : [10]
+# 
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 335: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     14   
+#   din     integral    8     'd5  
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 335: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     1    
+#   rd_adr  integral    4     'd1  
+#   dout    integral    8     'd2  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=14 | din=5
+# Exp data = '{1:2, 2:17, 5:0, 6:6, 7:13, 8:0, 9:14, 11:12, 14:5, 15:13 }
+# 
+# Data in fifo from RD MON :
+#  re=1 | rd_adr=1 | dout=2
+# 
+# Exp out = 2
+# UVM_INFO ../tb/ram_sb.sv(62) @ 335: uvm_test_top.ram_envh.ram_sbh[0] [ram_sb] 
+# 
+# Scoreboard : [Data Match Successful]
+# [dout : exp_out] = [2:2]
+# 
+# data match : [11]
+# 
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 345: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     14   
+#   din     integral    8     'd5  
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 345: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     1    
+#   rd_adr  integral    4     13   
+#   dout    integral    8     'd0  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=14 | din=5
+# Exp data = '{1:2, 2:17, 5:0, 6:6, 7:13, 8:0, 9:14, 11:12, 14:5, 15:13 }
+# 
+# Data in fifo from RD MON :
+#  re=1 | rd_adr=13 | dout=0
+# 
+# UVM_WARNING ../tb/ram_sb.sv(78) @ 345: uvm_test_top.ram_envh.ram_sbh[0] [ram_sb] Read from empty addr: 13
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 355: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     14   
+#   din     integral    8     'd5  
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 355: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     1    
+#   rd_adr  integral    4     13   
+#   dout    integral    8     'd0  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=14 | din=5
+# Exp data = '{1:2, 2:17, 5:0, 6:6, 7:13, 8:0, 9:14, 11:12, 14:5, 15:13 }
+# 
+# Data in fifo from RD MON :
+#  re=1 | rd_adr=13 | dout=0
+# 
+# UVM_WARNING ../tb/ram_sb.sv(78) @ 355: uvm_test_top.ram_envh.ram_sbh[0] [ram_sb] Read from empty addr: 13
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 365: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     14   
+#   din     integral    8     'd5  
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 365: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     1    
+#   rd_adr  integral    4     13   
+#   dout    integral    8     'd0  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=14 | din=5
+# Exp data = '{1:2, 2:17, 5:0, 6:6, 7:13, 8:0, 9:14, 11:12, 14:5, 15:13 }
+# 
+# Data in fifo from RD MON :
+#  re=1 | rd_adr=13 | dout=0
+# 
+# UVM_WARNING ../tb/ram_sb.sv(78) @ 365: uvm_test_top.ram_envh.ram_sbh[0] [ram_sb] Read from empty addr: 13
+# UVM_INFO ../write_agent_top/ram_write_monitor.sv(34) @ 375: uvm_test_top.ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_monh [ram_wr_mon] 
+# SAMPLING WRITE TRANSACTIONS :
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_wr_xtn  -     @947 
+#   rst     integral    1     'd0  
+#   we      integral    1     1    
+#   wr_adr  integral    4     14   
+#   din     integral    8     'd5  
+# ---------------------------------
+# 
+# UVM_INFO ../read_agent_top/ram_read_monitor.sv(32) @ 375: uvm_test_top.ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_monh [ram_rd_mon] 
+# SAMPLING READ TRANSACTIONS : 
+# ---------------------------------
+# Name      Type        Size  Value
+# ---------------------------------
+# xtnh      ram_rd_xtn  -     @684 
+#   re      integral    1     1    
+#   rd_adr  integral    4     13   
+#   dout    integral    8     'd0  
+# ---------------------------------
+# 
+# 
+# Data in fifo from WR MON :
+#  rst=0 | we=1 | wd_adr=14 | din=5
+# Exp data = '{1:2, 2:17, 5:0, 6:6, 7:13, 8:0, 9:14, 11:12, 14:5, 15:13 }
+# 
+# Data in fifo from RD MON :
+#  re=1 | rd_adr=13 | dout=0
+# 
+# UVM_WARNING ../tb/ram_sb.sv(78) @ 375: uvm_test_top.ram_envh.ram_sbh[0] [ram_sb] Read from empty addr: 13
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 385: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :   92
+# UVM_WARNING :    9
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [Questa UVM]     2
+# [RNTST]     1
+# [TEST_DONE]     1
+# [UVMTOP]     1
+# [ram_rd_mon]    38
+# [ram_sb]    20
+# [ram_wr_mon]    38
+# ** Note: $finish    : C:/questasim64_10.7c/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 385 ns  Iteration: 54  Instance: /ram_top
+# Saving coverage database on exit...
+# End time: 12:31:03 on Apr 05,2026, Elapsed time: 0:00:03
+# Errors: 0, Warnings: 1
