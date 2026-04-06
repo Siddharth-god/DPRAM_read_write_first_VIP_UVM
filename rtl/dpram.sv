@@ -4,7 +4,8 @@ module ram #(
     parameter ADDR_BUS = 4,
 
     // Behavior selection (future use)
-    parameter MODE = 1   // 0 = READ_FIRST, 1 = WRITE_FIRST
+    // Default to write first
+    parameter MODE = 1   // 0 = READ_FIRST, 1 = WRITE_FIRST 
 )(
     input clk,
     input rst,

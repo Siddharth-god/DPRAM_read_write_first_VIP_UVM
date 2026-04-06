@@ -2,8 +2,8 @@
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx TEST xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //------------------------------------------------------- TEST -----------------------------------------------------
 
-class ram_test extends uvm_test;
-    `uvm_component_utils(ram_test)
+class ram_test_base extends uvm_test;
+    `uvm_component_utils(ram_test_base)
     `NEW_COMP
 
     ram_env ram_envh; 
@@ -69,20 +69,20 @@ class ram_test extends uvm_test;
         ram_envh = ram_env::type_id::create("ram_envh",this);
     endfunction 
 
-    function void end_of_elaboration_phase(uvm_phase phase);
-        uvm_top.print_topology();
-    endfunction 
+    // function void end_of_elaboration_phase(uvm_phase phase);
+    //     uvm_top.print_topology();
+    // endfunction 
 
 endclass 
 
-//------------------------------------ SINGLE ADDR TEST --------------------------------------
-class ram_test1 extends ram_test;
-    `uvm_component_utils(ram_test1)
+//------------------------------------ SINGLE ADDR WRITE FIRST TEST --------------------------------------
+class ram_test_write_first extends ram_test_base;
+    `uvm_component_utils(ram_test_write_first)
     `NEW_COMP
 
     seq_rst seq_rst_h; 
-    seq_wr_single_addr seq_wr_single_addr_h; 
-    seq_rd_single_addr seq_rd_single_addr_h; 
+    same_addr_we_seq same_addr_we_seq_h; 
+    same_addr_re_seq same_addr_re_seq_h; 
 
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
@@ -90,24 +90,74 @@ class ram_test1 extends ram_test;
 
     task run_phase(uvm_phase phase);
         seq_rst_h = seq_rst::type_id::create("seq_rst_h");
-        seq_wr_single_addr_h = seq_wr_single_addr::type_id::create("seq_wr_single_addr_h");
-        seq_rd_single_addr_h = seq_rd_single_addr::type_id::create("seq_rd_single_addr_h");
+        same_addr_we_seq_h = same_addr_we_seq::type_id::create("same_addr_we_seq_h");
+        same_addr_re_seq_h = same_addr_re_seq::type_id::create("same_addr_re_seq_h");
+
+        $display("\n\n-----------------------------[WRITE FIRST MODE] TEST STARTED-----------------------------\n\n");
 
         phase.raise_objection(this);
-        // write seq
+
+        // Reset
         seq_rst_h.start(ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_seqrh);
-        seq_wr_single_addr_h.start(ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_seqrh);
-        // read seq 
-        seq_rd_single_addr_h.start(ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_seqrh);
+
+        // WRITE MODE CHECK 
+        fork 
+            same_addr_we_seq_h.start(ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_seqrh);
+            same_addr_re_seq_h.start(ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_seqrh);
+        join
+        #50;
+        phase.drop_objection(this);
+    endtask 
+endclass 
+
+//------------------------------------ SINGLE ADDR READ FIRST TEST --------------------------------------
+class ram_test_read_first extends ram_test_base;
+    `uvm_component_utils(ram_test_read_first)
+    `NEW_COMP
+
+    seq_rst seq_rst_h; 
+    same_addr_we_seq same_addr_we_seq_h; 
+    same_addr_re_seq same_addr_re_seq_h;
+
+    // Preloading memory first
+    seq_wr_burst seq_wr_burst_h; 
+
+    function void build_phase(uvm_phase phase);
+        super.build_phase(phase);
+    endfunction
+
+    task run_phase(uvm_phase phase);
+        seq_rst_h = seq_rst::type_id::create("seq_rst_h");
+        same_addr_we_seq_h = same_addr_we_seq::type_id::create("same_addr_we_seq_h");
+        same_addr_re_seq_h = same_addr_re_seq::type_id::create("same_addr_re_seq_h");
+
+        // Write burst to preload the memory 
+        seq_wr_burst_h = seq_wr_burst::type_id::create("seq_wr_burst_h");
+
+        $display("\n\n-----------------------------[READ FIRST MODE] TEST STARTED-----------------------------\n\n");
+
+        phase.raise_objection(this);
+
+        // Reset 
+        seq_rst_h.start(ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_seqrh);
+
+        // Preloading the memory 
+        seq_wr_burst_h.start(ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_seqrh);
+
+        // READ MODE CHECK --> Have to manually change top mode parameter (will automate in future)
+        fork
+            same_addr_we_seq_h.start(ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_seqrh);
+            same_addr_re_seq_h.start(ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_seqrh);
+        join
         #50;
         phase.drop_objection(this);
     endtask 
 endclass 
 
 
-//------------------------------------ BURST TEST --------------------------------------
-class ram_test2 extends ram_test;
-    `uvm_component_utils(ram_test2)
+//------------------------------------ BURST MODE TEST --------------------------------------
+class ram_test_burst_wr_rd extends ram_test_base;
+    `uvm_component_utils(ram_test_burst_wr_rd)
     `NEW_COMP
 
     seq_rst seq_rst_h; 
@@ -119,16 +169,17 @@ class ram_test2 extends ram_test;
     endfunction
 
     task run_phase(uvm_phase phase);
-        //seq_rst_h = seq_rst::type_id::create("seq_rst_h");
+        seq_rst_h = seq_rst::type_id::create("seq_rst_h");
         seq_wr_burst_h = seq_wr_burst::type_id::create("seq_wr_burst_h");
         seq_rd_burst_h = seq_rd_burst::type_id::create("seq_rd_burst_h");
 
+        $display("\n\n-----------------------------[BURST MODE] TEST STARTED-----------------------------\n\n");
         phase.raise_objection(this);
-        // write seq
-        // seq_rst_h.start(ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_seqrh);
-        seq_wr_burst_h.start(ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_seqrh);
-        // read seq 
-        seq_rd_burst_h.start(ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_seqrh);
+            seq_rst_h.start(ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_seqrh);
+        fork
+            seq_wr_burst_h.start(ram_envh.ram_wr_agt_toph[0].ram_wr_agth.ram_wr_seqrh);
+            seq_rd_burst_h.start(ram_envh.ram_rd_agt_toph[0].ram_rd_agth.ram_rd_seqrh);
+        join
         #50;
         phase.drop_objection(this);
     endtask 

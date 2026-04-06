@@ -26,14 +26,14 @@ class seq_rst extends ram_wr_seq;
 endclass 
 
 
-// ----------------------------- SINGLE ADDR WRITE SEQ ------------------------------
-class seq_wr_single_addr extends ram_wr_seq;
-    `uvm_object_utils(seq_wr_single_addr)
+// ----------------------------- SAME ADDR WRITE FIRST MODE CHECK ------------------------------
+class same_addr_we_seq extends ram_wr_seq;
+    `uvm_object_utils(same_addr_we_seq)
     `NEW_OBJ
 
     task body();
         $display("\n------------------------------------ Single addr write sequence started ------------------------------------\n\n");
-        repeat(3) begin 
+        repeat(5) begin 
             req = ram_wr_xtn::type_id::create("req");
             start_item(req); 
             assert(req.randomize() with {
