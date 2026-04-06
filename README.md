@@ -69,6 +69,7 @@ A UVM-based testbench is developed to verify all functional scenarios including:
 
 ## Scoreboard Logic Explaination 
 
+### Delay 1 in Scoreboard to Mimic DUT : 
 1) The Legacy/Patch-Up Approach (#1 Delay) :
 
 - Explaination regarding #1 delay usage to make _SCOREBOARD_ behave like DUT. 
@@ -90,7 +91,7 @@ task run_phase(uvm_phase phase);
                     
                 // Comparision .........
 ```
-### How #1 Delay is working : 
+#### How #1 Delay is working : 
 
 __Simplicity__: It’s a one-line fix that visually separates the "Write" and "Read" events in time.
 
@@ -114,6 +115,7 @@ In SystemVerilog, most logic happens in "delta cycles" (zero time). By adding #1
 
 ---
 
+### Updated _Scoreboard_ logic : 
 2. The Updated __"Chameleon"__ Reference Model :
 
 The scoreboard was refactored to be _Collision-Aware_ and _Parameter-Driven_. It now uses 
@@ -174,9 +176,9 @@ Burst Mode   |   make run_test_burst        |     MODE=1   |   Randomized sequen
 1. Clone the repository.
 2. Run the Write-First test:
 ```bash
-   make run_test_write_first
-   make run_test_read_first
-   make run_test_burst
+make run_test_write_first
+make run_test_read_first
+make run_test_burst
 ```
 
 ## Future Updates 
